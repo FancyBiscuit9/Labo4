@@ -14,10 +14,7 @@ namespace Labo4.Models
         /// <summary>
         /// Constructeur : Recoit une chaine de connexion en parametre
         /// </summary>
-        public CoursDataContext(string connectionstring)
-        {
-            this.ConnectionString = connectionstring;
-        }
+        public CoursDataContext(string connectionstring) => this.ConnectionString = connectionstring;
 
         /// <summary>
         /// insere une donnée de type cours dans la table cours
@@ -85,6 +82,8 @@ namespace Labo4.Models
         public Cours Select(int numeroCours)
         {
             Cours cours = new Cours();
+
+            // Source : Code du word Chapitre06.docs
             using (SqlConnection cn = new SqlConnection(this.ConnectionString))
             {
                 // définir la requete
