@@ -18,7 +18,7 @@ namespace Labo4.Controllers
         public PanierController(IConfiguration configuration)
         {
             this.Configuration = configuration;
-            string strConnection = this.Configuration.GetConnectionString("Labo04");
+            string strConnection = this.Configuration.GetConnectionString("Labo04Connection");
             this.etudiantsDataContext = new EtudiantsDataContext(strConnection);
             this.coursDataContext = new CoursDataContext(strConnection);
         }
@@ -64,7 +64,9 @@ namespace Labo4.Controllers
          /// <returns></returns>
         public IActionResult listeCours()
         {
-            return View();
+            // va cerhcher toute les données de la base de données et les mets dans la liste
+            List<Cours> listeCours = new List<Cours> (coursDataContext.Select());
+            return View("listeCours", listeCours);
         }
 
         /* (0 point) La méthode nommée "AfficherPanier". Cette 

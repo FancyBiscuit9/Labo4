@@ -16,7 +16,7 @@ namespace Labo4.Controllers
         public EtudiantsController(IConfiguration configuration)
         {
             this.Configuration = configuration;
-            string strConnection = this.Configuration.GetConnectionString("Labo04");
+            string strConnection = this.Configuration.GetConnectionString("Labo04Connection");
             this.EtudiantDataContext = new EtudiantsDataContext(strConnection);
         }
 

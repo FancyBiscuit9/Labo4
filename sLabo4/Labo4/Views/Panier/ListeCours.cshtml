@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Labo4.Models.Cours>
+
+@{
+    ViewData["Title"] = "ListeCours";
+}
+
+<h2>ListeCours</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroCours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Intitule)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCredit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Session)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroCours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Intitule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCredit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Session)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+
+        <tr>
+            <td>
+                <a>Ajouter</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="" asp-action=""></a><br /><br />
+    <a asp-controller="" asp-action=""></a>
+</div>
